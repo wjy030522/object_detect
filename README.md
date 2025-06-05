@@ -17,7 +17,4 @@
     python process.py
     ```
 
-4. 运行完成后，检测结果会输出到同级目录下的 `result.txt` 文件中。
-
----
 

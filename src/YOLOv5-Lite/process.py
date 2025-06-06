@@ -2,7 +2,7 @@ import os
 from PIL import Image
 from detect import run_detection  # 从封装后的 detect.py 中导入
 
-def process_single_image(img_path):
+def process_img(img_path):
     # 获取图片文件名和目录
     fname = os.path.basename(img_path)
     print(f'Processing {fname}...')
@@ -36,5 +36,5 @@ def process_single_image(img_path):
 # 示例调用方式
 if __name__ == '__main__':
     img_path = '2.jpg'
-    result = process_single_image(img_path)
+    result = process_img(img_path)
     print(result)

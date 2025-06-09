@@ -24,6 +24,6 @@ def process_img(img_path):
 
     return output_list
 if __name__ == '__main__':
-    img_path = 'testimages/1747468192.jpg'  # 替换为你的图片路径
+    img_path = '1.jpg'  # 替换为你的图片路径
     result = process_img(img_path)
     print(result)

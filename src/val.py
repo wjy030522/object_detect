@@ -11,15 +11,22 @@ def evaluate_model(weights_path, data_yaml, img_size=640, batch_size=16, device=
         workers=0
     )
 
-    # 输出关键评估指标
+    params = sum(p.numel() for p in model.model.parameters()) / 1e6
+    speed = metrics.speed
+
+    mean_precision = metrics.box.mp
+    mean_recall = metrics.box.mr
+
     print("\n=== Evaluation Results ===")
     print(f"mAP50: {metrics.box.map50:.4f}")
     print(f"mAP50-95: {metrics.box.map:.4f}")
+    print(f"Precision (mean): {mean_precision:.4f}")
+    print(f"Recall (mean): {mean_recall:.4f}")
+    print(f"Parameters (M): {params:.2f}")
+    print(f"Inference Speed (ms/img): {speed['inference']:.2f}")
 
     return metrics
 
-
-# 示例用法
 if __name__ == "__main__":
     evaluate_model(
         weights_path="normal.pt",
